@@ -9,6 +9,8 @@ class Iceman;
 class Ninja;
 class Lion;
 class Wolf;
+class CMake_soldier;
+class CCity;
 class CSoldiers_attribute
 {
 protected:
@@ -16,29 +18,43 @@ protected:
 	int Life_value;
 	int Name_num;
 public:
-	void fight_attack(CSoldiers_attribute *p)
+	CSoldiers_attribute(int value)
 	{
-		p.fightback(this);
-		p.hurt(Attack_value);
+		Name_num = value;
 	}
-	void hurt(int Attack_value)
+	void fight_attack(CSoldiers_attribute *p)//¹¥»÷
+	{
+		p->fight_back(this);
+		p->hurt(Attack_value);
+	}
+	void hurt(int Attack_value)//ÉËº¦
 	{
 		Life_value = -Attack_value;
 	}
-	void fightback(CSoldiers_attribute *p)
+	void fight_back(CSoldiers_attribute *p)//·´»÷
 	{
-		p.hurt(Attack_value / 2);
+		p->hurt(Attack_value / 2);
 	}
 	void CSoldiers_die()
 	{
 		cout << "Õ½ËÀ" << endl;
 	}//ËÀÍöº¯Êý
+	void reward()//½±Àø
+	{
 
+	}
+};
+class CCity
+{
+protected:
+	int NUM;
+	int city_Life_element;
+	string color;
 };
 class CMake_soldier
 {
 protected:
-	int Life_elememt;//ÉúÃüÔ´
+	int Life_element;//ÉúÃüÔ´
 	int Iceman;
 	int Lion;
 	int Ninja;
@@ -58,6 +74,7 @@ public:
 		cout << "lion_____»¶ºô" << endl;
 	}
 };
+
 int main()
 {
     return 0;
